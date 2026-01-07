@@ -13,7 +13,7 @@
 ---
 
 ## 🌐 Live Demo
-You can view the live site here: **[[Insert Your Vercel/Netlify Link Here]](https://portfolio-five-puce-89.vercel.app/)**
+You can view the live site here: **https://portfolio-five-puce-89.vercel.app**
 
 ---
 

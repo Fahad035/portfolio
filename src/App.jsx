@@ -6,6 +6,8 @@ import Skills from './Components/Skills/Skills'
 import Projects from './Components/Projects/Projects'
 import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
+import Divider from './Components/Divider/SectionDivider'
+
 
 
 
@@ -14,6 +16,7 @@ const App = () => {
     <div className='bg-slate-800 h-auto w-full overflow-hidden'>
       <Navbar />
       <Home />
+      <Divider />
       <About />
       <Skills />
       <Projects />

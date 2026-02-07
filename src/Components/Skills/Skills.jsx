@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaDatabase, FaGithub } from 'react-icons/fa';
+import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaDatabase, FaGithub, FaGit } from 'react-icons/fa';
 
 const skills = [
   {
@@ -15,7 +15,7 @@ const skills = [
     icon: <FaJs size={60} className="text-yellow-500" />,
   },
   {
-    name: 'React',
+    name: 'React JS',
     icon: <FaReact size={60} className="text-blue-300" />,
   },
   {
@@ -30,6 +30,10 @@ const skills = [
     name: 'Github',
     icon: <FaGithub size={60} className="text-white" />,
   },
+  {
+    name: 'Version Control',
+    icon: <FaGit size={60} className="text-red-500" />,
+  }
 ];
 
 const Skills = () => {

@@ -1,0 +1,19 @@
+/* Home.css */
+
+@keyframes customFloat {
+    0%, 100% { 
+      transform: perspective(1000px) rotateX(10deg) rotateY(-15deg) translateY(0px); 
+    }
+    50% { 
+      transform: perspective(1000px) rotateX(10deg) rotateY(-15deg) translateY(-20px); 
+    }
+  }
+  
+  .animate-custom-float {
+    animation: customFloat 6s ease-in-out infinite;
+  }
+  
+  /* Optional: Add a transition for the image hover effect */
+  .profile-img-container {
+    transition: all 0.5s ease-in-out;
+  }

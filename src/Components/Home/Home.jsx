@@ -1,14 +1,27 @@
-import React from "react";
-// Import your profile image if you have one
-// import ProfileImg from "../../assets/profile.png"; 
+import React, { useState, useEffect } from "react";
+import "./Home.css";
+import i1 from "../../assets/i1.svg"
+import i2 from "../../assets/i2.svg"
+import i3 from "../../assets/i3.svg"
+import i4 from "../../assets/i4.svg"
+import i5 from "../../assets/i5.svg"
+import i6 from "../../assets/i6.svg"
 
 const Home = () => {
+  // Logic to store and randomize the selected image
+  const [currentProfile, setCurrentProfile] = useState(i1);
+
+  useEffect(() => {
+    const profileImages = [i1, i2, i3, i4, i5, i6];
+    const randomIndex = Math.floor(Math.random() * profileImages.length);
+    setCurrentProfile(profileImages[randomIndex]);
+  }, []);
+
   return (
-    <div id="Home" className="text-white flex flex-col md:flex-row w-full min-h-screen mx-auto justify-center items-center p-10 md:p-24 overflow-hidden">
-      
+    <div id="Home" className="text-white flex flex-col md:flex-row w-full min-h-screen mx-auto justify-center items-center p-10 md:p-24 overflow-hidden bg-[#0a0a0a]">
       {/* Left Content Side */}
-      <div className="flex flex-col items-start md:w-2/4 space-y-6">
-        <h1 className="text-4xl md:text-7xl font-bold leading-tight tracking-tighter bg-gradient-to-r from-[#b80dec] via-[#57cef1] to-[#9a22df] text-transparent bg-clip-text">
+      <div className="flex flex-col items-start md:w-2/4 space-y-6 z-10">
+        <h1 className="text-4xl md:text-7xl font-bold leading-tight tracking-tighter bg-linear-to-r from-[#b80dec] via-[#57cef1] to-[#9a22df] text-transparent bg-clip-text">
           Hello, I am Fahad
         </h1>
         
@@ -17,7 +30,6 @@ const Home = () => {
           crafting high-performance, visually stunning user interfaces.
         </p>
 
-        {/* Download Button - Wrapped in a div for spacing */}
         <div className="pt-4">
           <a
             href="/Resume.pdf" 
@@ -29,16 +41,38 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Right Image/Graphic Side */}
-      <div className="hidden md:flex md:w-2/4 justify-center items-center relative">
-        {/* If you don't have an image yet, this creates a cool glowing orb background */}
-        <div className="absolute w-64 h-64 bg-[#b80dec] rounded-full filter blur-[100px] opacity-30 animate-pulse"></div>
-        <div className="relative z-10 w-80 h-80 rounded-2xl border-2 border-white/10 overflow-hidden bg-slate-900/50 backdrop-blur-sm flex justify-center items-center text-slate-500">
-           {/* Replace this div with an <img> tag when ready */}
-           <p>Your Image Here</p> 
+      {/* Right Image/Graphic Side - Replicating the Argha Isometric Style */}
+      <div className="mt-16 md:mt-0 flex md:w-2/4 justify-center items-center relative">
+        
+        {/* The Neon Floor Glow effect underneath the image */}
+        <div className="absolute w-[300px] h-[100px] bg-[#b80dec]/20 rounded-[100%] blur-[60px] -bottom-5 rotate-[-15deg]"></div>
+
+        {/* The Floating Image Container with 3D Transform */}
+        <div 
+          className="relative z-10 transition-all duration-500 ease-in-out"
+          style={{ 
+            transform: 'perspective(1000px) rotateX(10deg) rotateY(-15deg)',
+            animation: 'float 6s ease-in-out infinite'
+          }}
+        >
+          {/* Main SVG Image Container with Glassmorphism styling */}
+          <div className="p-4 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 shadow-2xl">
+            <img 
+              className="w-64 h-64 md:w-80 md:h-80 object-contain transition-all duration-500" 
+              src={currentProfile} 
+              alt="Fahad Profile" 
+            />
+          </div>
+
+          {/* Decorative Floating Elements to match the "Attractive" style */}
+          <div className="absolute -top-6 -right-6 w-12 h-12 bg-linear-to-br from-[#57cef1] to-[#b80dec] rounded-lg opacity-60 shadow-[0_0_15px_#57cef1] animate-bounce"></div>
+          <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-[#f3349d] rounded-md opacity-40 shadow-[0_0_15px_#f3349d] animate-pulse"></div>
         </div>
       </div>
 
+      {/* Global Background Glows */}
+      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-[#b80dec]/10 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-[#57cef1]/10 rounded-full blur-[120px]"></div>
     </div>
   );
 };

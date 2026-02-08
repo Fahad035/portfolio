@@ -13,7 +13,6 @@
     animation: customFloat 6s ease-in-out infinite;
   }
   
-  /* Optional: Add a transition for the image hover effect */
   .profile-img-container {
     transition: all 0.5s ease-in-out;
   }

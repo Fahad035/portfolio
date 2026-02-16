@@ -33,7 +33,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="Projects" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white">
+    <section id="Projects" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-slate-800 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl font-bold sm:text-3xl bg-linear-to-r from-[#ec0dd9] via-[#d331e9] to-[#13d9e7] text-transparent bg-clip-text">My Projects</h2>

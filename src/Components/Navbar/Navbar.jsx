@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { RiCloseLine, RiMenu2Line } from '@remixicon/react';
-import logo1 from '../../assets/logo1.png';
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -29,7 +28,11 @@ const Navbar = () => {
       }`}
     >
       <a href="#Home">
-        <img src={logo1} alt="Brand" className="h-10 w-20 object-contain" />
+        <h1 className="text-2xl md:text-2xl font-extrabold tracking-tight select-none cursor-default
+        bg-linear-to-r from-[#60a5fa] via-[#a855f7] to-[#ec4899] 
+        text-transparent bg-clip-text font-sans">
+        Fahad
+      </h1>
       </a>
 
       {/* Navigation Links */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import i1 from "../../assets/i1.svg"
 import i2 from "../../assets/i2.svg"
@@ -8,16 +8,14 @@ import i5 from "../../assets/i5.svg"
 import i6 from "../../assets/i6.svg"
 
 const Home = () => {
-  const [currentProfile, setCurrentProfile] = useState(i1);
-
-  useEffect(() => {
+  const [currentProfile] = useState(() => {
     const profileImages = [i1, i2, i3, i4, i5, i6];
     const randomIndex = Math.floor(Math.random() * profileImages.length);
-    setCurrentProfile(profileImages[randomIndex]);
-  }, []);
+    return profileImages[randomIndex];
+  });
 
   return (
-    <div id="Home" className="text-white flex flex-col md:flex-row w-full min-h-screen mx-auto justify-center items-center p-10 md:p-24 overflow-hidden bg-[#0a0a0a]">
+    <div id="Home" className="text-white flex flex-col md:flex-row w-full max-w-full min-h-screen mx-auto justify-center items-center p-10 md:p-24 overflow-x-hidden bg-[#0a0a0a]">
       <div className="flex flex-col items-start md:w-2/4 space-y-6 z-10">
         <h1 className="text-4xl md:text-7xl font-bold leading-tight tracking-tighter bg-linear-to-r from-[#b80dec] via-[#57cef1] to-[#9a22df] text-transparent bg-clip-text">
           Hello, I am Fahad
@@ -60,9 +58,10 @@ const Home = () => {
           <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-[#f3349d] rounded-md opacity-40 shadow-[0_0_15px_#f3349d] animate-pulse"></div>
         </div>
       </div>
-
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-[#b80dec]/10 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-[#57cef1]/10 rounded-full blur-[120px]"></div>
+    </div>
     </div>
   );
 };

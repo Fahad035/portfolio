@@ -18,6 +18,7 @@ const App = () => {
       <Home />
       <Divider />
       <About />
+      <Divider />
       <Skills />
       <Projects />
       <Contact />

@@ -1,18 +1,56 @@
 /* Home.css */
 
-@keyframes customFloat {
-    0%, 100% { 
-      transform: perspective(1000px) rotateX(10deg) rotateY(-15deg) translateY(0px); 
-    }
-    50% { 
-      transform: perspective(1000px) rotateX(10deg) rotateY(-15deg) translateY(-20px); 
-    }
+@keyframes homeFloat {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(8deg) rotateY(-12deg) translateY(0px);
   }
-  
-  .animate-custom-float {
-    animation: customFloat 6s ease-in-out infinite;
+  50% {
+    transform: perspective(1000px) rotateX(8deg) rotateY(-12deg) translateY(-14px);
   }
-  
-  .profile-img-container {
-    transition: all 0.5s ease-in-out;
+}
+
+@keyframes homeGlow {
+  0%, 100% {
+    opacity: 0.55;
+    filter: blur(0px);
   }
+  50% {
+    opacity: 0.9;
+    filter: blur(1px);
+  }
+}
+
+.profile-card {
+  animation: homeFloat 6.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.profile-img-container {
+  transition: all 0.5s ease-in-out;
+}
+
+.profile-card::after {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 20%, rgba(87, 206, 241, 0.35), rgba(184, 13, 236, 0.05) 60%, transparent 70%);
+  animation: homeGlow 3.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.profile-img {
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-card {
+    animation: none;
+  }
+  .profile-card::after {
+    animation: none;
+  }
+}
+

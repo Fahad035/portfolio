@@ -41,7 +41,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Fahad035/portfolio.git](https://github.com/Fahad035/portfolio.git)
+   git clone [https://github.com/Fahad035/portfolio.git]
 
 📧 Contact Me
 If you'd like to reach out, feel free to connect with me:

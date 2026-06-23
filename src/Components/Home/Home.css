@@ -1,56 +1,95 @@
 /* Home.css */
 
-@keyframes homeFloat {
-  0%, 100% {
-    transform: perspective(1000px) rotateX(8deg) rotateY(-12deg) translateY(0px);
-  }
-  50% {
-    transform: perspective(1000px) rotateX(8deg) rotateY(-12deg) translateY(-14px);
-  }
-}
-
-@keyframes homeGlow {
-  0%, 100% {
-    opacity: 0.55;
-    filter: blur(0px);
-  }
-  50% {
-    opacity: 0.9;
-    filter: blur(1px);
-  }
-}
-
+/* Ensure the card is a perfect circle and scales responsively */
 .profile-card {
-  animation: homeFloat 6.5s ease-in-out infinite;
-  transform-origin: center;
+  width: 256px;
+  height: 256px;
+  border-radius: 9999px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
 }
 
-.profile-img-container {
-  transition: all 0.5s ease-in-out;
+@media (min-width: 768px) {
+  .profile-card {
+    width: 320px;
+    height: 320px;
+  }
 }
 
+/* Animated glowing gradient border */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(120deg, #a855f7, #ec4899, #3b82f6);
+  background-size: 220% 220%;
+  animation: homeBorderGlow 7s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+  filter: saturate(1.2);
+  opacity: 0.95;
+}
+
+/* Soft aura/shadow behind the image */
 .profile-card::after {
   content: "";
   position: absolute;
-  inset: -18px;
+  inset: -26px;
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 20%, rgba(87, 206, 241, 0.35), rgba(184, 13, 236, 0.05) 60%, transparent 70%);
-  animation: homeGlow 3.8s ease-in-out infinite;
+  background: radial-gradient(circle at 30% 20%, rgba(236, 72, 153, 0.25), rgba(168, 85, 247, 0.12) 45%, rgba(59, 130, 246, 0.06) 65%, transparent 70%);
+  z-index: 0;
+  filter: blur(10px);
+  animation: homeAura 3.8s ease-in-out infinite;
   pointer-events: none;
-  z-index: -1;
 }
 
 .profile-img {
-  border-radius: 1.5rem;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 40px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 14px 44px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes homeBorderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 220% 50%;
+  }
+}
+
+@keyframes homeAura {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-4px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .profile-card {
-    animation: none;
-  }
+  .profile-card::before,
   .profile-card::after {
     animation: none;
   }
 }
+
 

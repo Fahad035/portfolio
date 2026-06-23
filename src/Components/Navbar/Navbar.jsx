@@ -1,15 +1,23 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 /* eslint-disable-next-line no-unused-vars */
 import { AnimatePresence, motion } from 'framer-motion';
-import { FaCompass } from 'react-icons/fa';
+import {
+  FaCompass,
+  FaHome,
+  FaUser,
+  FaGraduationCap,
+  FaCode,
+  FaTrophy,
+  FaEnvelope
+} from 'react-icons/fa';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#Home' },
-  { label: 'About', href: '#About' },
-  { label: 'Skills', href: '#Skills' },
-  { label: 'Projects', href: '#Projects' },
-  { label: 'Achievements', href: '#Achievements' },
-  { label: 'Contact', href: '#Contact' }
+  { label: 'Home', href: '#Home', icon: FaHome },
+  { label: 'About', href: '#About', icon: FaUser },
+  { label: 'Skills', href: '#Skills', icon: FaGraduationCap },
+  { label: 'Projects', href: '#Projects', icon: FaCode },
+  { label: 'Achievements', href: '#Achievements', icon: FaTrophy },
+  { label: 'Contact', href: '#Contact', icon: FaEnvelope }
 ];
 
 const Navbar = () => {
@@ -142,11 +150,11 @@ const Navbar = () => {
               <FaCompass className="text-cyan-200/90 drop-shadow-[0_0_10px_rgba(103,232,249,0.45)] transition-transform duration-300 group-hover:rotate-6" />
               <span>Explore</span>
               <motion.span
-                animate={{ rotate: isOpen ? 90 : 0 }}
+                animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-                className="ml-1 text-fuchsia-200/80"
+                className="ml-1 inline-block text-fuchsia-200/80"
               >
-                ▸
+                ▾
               </motion.span>
             </button>
           </motion.div>
@@ -161,10 +169,10 @@ const Navbar = () => {
               animate="open"
               exit="closed"
               variants={containerVariants}
-              className="absolute left-0 right-0 top-full mt-3 mx-auto w-[min(900px,calc(100vw-3rem))]"
+              className="absolute right-4 top-full mt-3 w-60"
             >
               <motion.div
-                className="rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl shadow-2xl overflow-hidden"
+                className="rounded-2xl border border-white/10 bg-slate-900/40 backdrop-blur-xl shadow-lg shadow-fuchsia-500/10 overflow-hidden"
                 initial={false}
                 animate={{
                   boxShadow: '0 0 0 rgba(0,0,0,0)',
@@ -179,7 +187,7 @@ const Navbar = () => {
                 />
                 <div className="relative p-3 md:p-4">
                   <motion.ul
-                    className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3"
+                    className="flex flex-col items-stretch gap-2"
                     variants={listVariants}
                     initial="closed"
                     animate="open"
@@ -189,7 +197,7 @@ const Navbar = () => {
                         <a
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className={`block rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm md:text-[15px] font-semibold text-white/90 backdrop-blur-md transition-all duration-200 ${
+                          className={`block rounded-2xl border border-white/10 bg-black/20 px-4 py-2 text-sm md:text-[15px] font-semibold text-gray-900 backdrop-blur-md transition-all duration-200 ${
                             hoverRing
                           }`}
                         >

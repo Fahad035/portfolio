@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div
       id="Home"
-      className="text-white flex flex-col md:flex-row w-full max-w-full min-h-screen mx-auto justify-center items-center p-10 md:p-24 overflow-x-hidden bg-linear-to-r from-gray-950 via-blue-950 to-purple-950"
+      className="text-white flex flex-col md:flex-row w-full max-w-full min-h-screen mx-auto justify-center items-center p-10 pt-32 md:pt-24 lg:pt-20 overflow-x-hidden bg-linear-to-r from-gray-950 via-blue-950 to-purple-950"
     >
       <div className="flex flex-col items-start md:w-2/4 space-y-6 z-10">
         <h1 className="text-4xl md:text-7xl font-bold leading-tight tracking-tighter bg-linear-to-r from-[#b80dec] via-[#57cef1] to-[#9a22df] text-transparent bg-clip-text">
@@ -20,7 +20,7 @@ const Home = () => {
             sequence={[
               "Hello, I am Fahad",
               1200,
-              "",
+              "",   
               200,
             ]}
             wrapper="span"
